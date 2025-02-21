@@ -1,0 +1,8 @@
+data <- c(11,13,13,15,15,16,19,20,20,20,21,21,22,23,24,30,40,45,45,45,71,72,73,75)
+bins <- split(data, ceiling(seq_along(data) / 4))
+bin_mean <- unlist(lapply(bins, function(x) rep(mean(x), length(x))))
+print(bin_mean)
+bin_median <- unlist(lapply(bins, function(x) rep(median(x), length(x))))
+print(bin_median)
+bin_boundaries <- unlist(lapply(bins, function(x) ifelse(abs(x - min(x)) < abs(x - max(x)), min(x), max(x))))
+print(bin_boundaries)
